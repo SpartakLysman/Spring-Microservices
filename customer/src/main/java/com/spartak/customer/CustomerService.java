@@ -11,9 +11,9 @@ public record CustomerService(CustomerRepository customerRepository) {
                 .email(request.email())
                 .build();
 
-        // todo: check if email is valid
-        // todo: check if email not taken
-        // store customer in db
+        // todo: check if email is valid ->
+        // todo: check if email not taken ->
+        // store customer in db ->
         customerRepository.save(customer);
 
     }
