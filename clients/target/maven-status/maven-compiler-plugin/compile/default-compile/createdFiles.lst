@@ -1,0 +1,4 @@
+com/spartak/clients/fraud/FraudClient.class
+com/spartak/clients/notification/NotificationClient.class
+com/spartak/clients/notification/NotificationRequest.class
+com/spartak/clients/fraud/FraudCheckResponse.class

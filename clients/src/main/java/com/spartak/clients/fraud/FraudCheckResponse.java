@@ -1,4 +1,4 @@
-package com.spartak.fraud;
+package com.spartak.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
 }

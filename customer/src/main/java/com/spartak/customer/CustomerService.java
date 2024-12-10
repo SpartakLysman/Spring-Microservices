@@ -1,15 +1,20 @@
 package com.spartak.customer;
 
+import com.spartak.clients.fraud.FraudCheckResponse;
+import com.spartak.clients.fraud.FraudClient;
+import com.spartak.clients.notification.NotificationClient;
+import com.spartak.clients.notification.NotificationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
 
 @Service
 @AllArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
-    private final RestTemplate restTemplate;
+    private final NotificationClient notificationClient;
+    private final FraudClient fraudClient;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -18,26 +23,24 @@ public class CustomerService {
                 .email(request.email())
                 .build();
 
-        // todo: check if email is valid ->
-        // todo: check if email not taken ->
+        // todo: check if email valid
+        // todo: check if email not taken
         customerRepository.saveAndFlush(customer);
-
-
-        // todo: check if fraudster ->
-        FraudCheckResponce fraudCheckResponce = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
-                FraudCheckResponce.class,
-                customer.getId()
-
-        );
-
-        if (fraudCheckResponce.isFraudster()) {
-            throw new IllegalStateException("He is a fraudster");
+        FraudCheckResponse fraudCheckResponse =
+                fraudClient.isFraudster(customer.getId());
+        if (fraudCheckResponse.isFraudster()) {
+            throw new IllegalStateException("fraudster");
         }
 
-
-        // store customer in db ->
-
         // todo: send notification
+        // todo: make it async. i.e add to queue
+        notificationClient.sendNotification(
+                new NotificationRequest(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format("Hi %s, welcome to Amigoscode...",
+                                customer.getFirstName())
+                )
+        );
     }
 }
