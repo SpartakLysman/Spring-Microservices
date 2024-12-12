@@ -1,0 +1,8 @@
+com/spartak/notification/NotificationController.class
+com/spartak/notification/NotificationService.class
+com/spartak/notification/Notification$NotificationBuilder.class
+com/spartak/notification/NotificationApplication.class
+com/spartak/notification/rabbitmq/NotificationConsumer.class
+com/spartak/notification/Notification.class
+com/spartak/notification/NotificationConfig.class
+com/spartak/notification/NotificationRepository.class

@@ -1,0 +1,6 @@
+com/spartak/fraud/FraudCheckHistory$FraudCheckHistoryBuilder.class
+com/spartak/fraud/FraudCheckService.class
+com/spartak/fraud/FraudCheckHistory.class
+com/spartak/fraud/FraudCheckHistoryRepository.class
+com/spartak/fraud/FraudController.class
+com/spartak/fraud/FraudApplication.class

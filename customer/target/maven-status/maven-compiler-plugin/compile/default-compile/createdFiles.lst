@@ -1,0 +1,7 @@
+com/spartak/customer/Customer$CustomerBuilder.class
+com/spartak/customer/CustomerApplication.class
+com/spartak/customer/CustomerController.class
+com/spartak/customer/Customer.class
+com/spartak/customer/CustomerService.class
+com/spartak/customer/CustomerRepository.class
+com/spartak/customer/CustomerRegistrationRequest.class

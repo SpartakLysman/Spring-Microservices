@@ -1,6 +1,5 @@
 package com.spartak.notification;
 
-
 import com.spartak.clients.notification.NotificationRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
